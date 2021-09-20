@@ -1,17 +1,18 @@
 (
 
 // synthdef 파일 템플릿 필요 - 라이선스 표기, 원작자 표기, synthdef 형식 등을 규격화
+// 소리 이름, 간단한 설명
 
 // 소리를 들어볼 수 있는 기능, all - 순차적으로, 이름을 표시하면서 / each - 이름을 표시하면서
-// 소리의 파라메터 tweak 기능
+// 소리의 파라메터 tweak 기능 - ㅇ
+// 클래스로 만들기?
+
 // 소리의 카테고리별 분류 기능 - 추후 1단계 이상의 depth도 가능하도록
-
-
 
 )
 
-
-// 카테고리별 자동 소리 재생?
+// 모든 소리 자동 재생
+// 카테고리별 자동 소리 재생
 synthNames = {kick: [], soft: [], noise: ["bbyong", "bbyong2"...] }
 
 synthName.do{|key|
@@ -22,6 +23,18 @@ synthName.do{|key|
 		syn.free;
 	}
 }
+
+
+Synth(\bbyong)
+
+
+SynthDescLib.all;
+a = SynthDescLib.getLib(\mtk_soundlib_noise);
+a.browse;
+a.synthDescs.keys;
+(
+{SinOsc.ar(mul:0.2)!2}.play
+)
 
 
 (/*=============== Main ===============*/
@@ -61,29 +74,31 @@ kindKeys.do{|key|
 	(">> Reading"+folder+"...").postln;
 
 	folder.filesDo{|f|
-		var file = f.fileName;
-		var libName = libNames.at(key);
-		var lib = allSynthDescLibs.at(libNames.at(key).asSymbol); // key must be a symbol type, not string
-		var synthName = f.fullPath.loadPaths; // exec .scd files, get synthdef name
-		synthName = synthName[0]; // [name] --> name
-		lib.read(synthPath++synthName++".scsyndef"); // load .scsyndef file to each synthdesclib
+		var extType = f.extension;
+		//extType.postln;
+		if (extType == "scd", {
+			var file = f.fileName;
+			var libName = libNames.at(key);
 
-		("   +"+file+"-->"+synthName).postln;
+			var lib = allSynthDescLibs.at(libNames.at(key).asSymbol); // key must be a symbol type, not string
+			var synthName = f.fullPath.loadPaths; // exec .scd files, get synthdef name
+			synthName = synthName[0]; // [name] --> name
+			lib.read(synthPath++synthName++".scsyndef"); // load .scsyndef file to each synthdesclib
 
-		count = count + 1;
-		};
+			("   +"+file+"-->"+synthName).postln;
+			count = count + 1;
+		    }
+		);
+	};
 
 	(">> Load"+count+"file(s).\n").postln;
+
 };
 
 // open browser
 // SynthDescLib.global.browse;
 
 )
-
-
-
-
 
 Synth(\bbyong);
 PathName
@@ -92,4 +107,4 @@ a.read(Platform.userAppSupportDir+/+"synthdefs"+/+"bbyong.scsyndef");
 SynthDescLib.global.browse;
 
 
-String
+{SinOsc.ar()}.play;

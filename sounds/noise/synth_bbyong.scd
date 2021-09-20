@@ -5,6 +5,13 @@
 // 형식: synthdef 이름을 리턴할 수 있는, store() 메소드
 // 1 synth per 1 file
 
+//
+//  synth_bbyong.cpp                               // filename
+//  noise                                          // category(카멜케이스?)
+//  Saw -> RLPF                                    // description(기본 형식이 필요할까?)
+//  Created by Gang il Lee on 2021/09/06.          // 파일 생성자, 일자 (저작권자와 같은 의미가 될까?)
+//  Creator giy ??
+
 /*==========================================*/
 
 (
