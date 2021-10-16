@@ -1,42 +1,3 @@
-(
-
-// synthdef 파일 템플릿 필요 - 라이선스 표기, 원작자 표기, synthdef 형식 등을 규격화
-// 소리 이름, 간단한 설명
-
-// 소리를 들어볼 수 있는 기능, all - 순차적으로, 이름을 표시하면서 / each - 이름을 표시하면서
-// 소리의 파라메터 tweak 기능 - ㅇ
-// 클래스로 만들기?
-
-// 소리의 카테고리별 분류 기능 - 추후 1단계 이상의 depth도 가능하도록
-
-)
-
-// 모든 소리 자동 재생
-// 카테고리별 자동 소리 재생
-synthNames = {kick: [], soft: [], noise: ["bbyong", "bbyong2"...] }
-
-synthName.do{|key|
-	key.do{|synth|
-		var syn = Synth(synth);
-		("Playing "+synth+"at "+/+key);
-		1.0.wait;
-		syn.free;
-	}
-}
-
-
-Synth(\bbyong)
-
-
-SynthDescLib.all;
-a = SynthDescLib.getLib(\mtk_soundlib_noise);
-a.browse;
-a.synthDescs.keys;
-(
-{SinOsc.ar(mul:0.2)!2}.play
-)
-
-
 (/*=============== Main ===============*/
 var allSynthDescLibs = SynthDescLib.all;
 var baseName = "mtk_soundlib";
@@ -64,7 +25,6 @@ kindPaths.do{|folder|
 	pathNames.put(name, pathStr); // IdentityDictionary
 	SynthDescLib.new(libName, s);
 };
-
 
 // Load synthdefs, read to synthdesclib
 kindKeys.do{|key|
@@ -97,14 +57,9 @@ kindKeys.do{|key|
 
 // open browser
 // SynthDescLib.global.browse;
-
 )
 
-Synth(\bbyong);
-PathName
-a = SynthDescLib.all.at(\mtk_soundlib_kick);
-a.read(Platform.userAppSupportDir+/+"synthdefs"+/+"bbyong.scsyndef");
-SynthDescLib.global.browse;
 
-
-{SinOsc.ar()}.play;
+/*=============== Todo ===============*/
+// 소리를 들어볼 수 있는 기능, all - 순차적으로, 이름을 표시하면서 / each - 이름을 표시하면서
+// 소리의 카테고리별 분류 기능 - 추후 1단계 이상의 depth도 가능하도록
