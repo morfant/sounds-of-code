@@ -1,4 +1,4 @@
-// Template
+// Template - 이 파일은 직접 수정하지 말고, 복제(duplicate) 후 변경해서 사용하세요.
 /*==========================================*/
 // license : MIT
 // description : Mix(n, Ringz(Impuse))
