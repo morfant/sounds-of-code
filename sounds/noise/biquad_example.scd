@@ -21,7 +21,7 @@
 
 	}).store;
 	name;
-)}.value();
+}.value();
 )
 
 
