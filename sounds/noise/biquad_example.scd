@@ -1,0 +1,27 @@
+s.boot;
+//biquad Filter example
+(
+SynthDef.new(\biquad_ex, {
+	arg a0, a1, a2, b1, b2;
+	var sig, amp=0.7;
+	sig=WhiteNoise.ar(amp, 0);
+	sig=SOS.ar(sig, a0, a1, a2, b1, b2);
+	Out.ar([0, 1], sig);
+}).add;
+)
+
+Synth(\biquad_ex,
+	[\a0, 0.003493,
+		\a1, 0,
+		\a2, -0.003493,
+		\b1, 1.992836,
+		\b2, -0.993039]
+);//(2nd order Bpf centerfreq: 100, 2.0Q, Gain 0.0db)
+
+Synth(\biquad_ex,
+	[\a0, 0.2,
+		\a1, 0,
+		\a2, -0.2,
+		\b1, 0.123,
+		\b2, -0.644]
+);//(centerfreq. goes high near 20000)
