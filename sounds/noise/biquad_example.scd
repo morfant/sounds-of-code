@@ -7,22 +7,26 @@
 
 (
 {
-	 // 1. Set synthdef name
+	// 1. Set synthdef name
 	var name = \biquad_ex;
 
 
 	// 2. Make your synthdef!
-(
-SynthDef.new(\biquad_ex, {
-	arg a0, a1, a2, b1, b2;
-	var sig, amp=0.7;
-	sig=WhiteNoise.ar(amp, 0);
-	sig=SOS.ar(sig, a0, a1, a2, b1, b2);
-	Out.ar([0, 1], sig);
-}).add;
-)
-//biquad Filter example
+	SynthDef.new(name, {
+		arg a0, a1, a2, b1, b2;
+		var sig, amp=0.7;
+		sig=WhiteNoise.ar(amp, 0);
+		sig=SOS.ar(sig, a0, a1, a2, b1, b2);
+		Out.ar([0, 1], sig);
 
+	}).store;
+	name;
+)}.value();
+)
+
+
+//biquad Filter example
+/*
 Synth(\biquad_ex,
 	[\a0, 0.003493,
 		\a1, 0,
@@ -38,3 +42,4 @@ Synth(\biquad_ex,
 		\b1, 0.123,
 		\b2, -0.644]
 );//(centerfreq. goes high near 20000)
+*/
