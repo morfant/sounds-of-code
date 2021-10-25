@@ -1,5 +1,17 @@
-s.boot;
-//biquad Filter example
+// Template - 이 파일은 직접 수정하지 말고, 복제(duplicate) 후 변경해서 사용하세요.
+/*==========================================*/
+// license : MIT
+// description : Biquad Filter coefficient example
+// Creator :
+/*==========================================*/
+
+(
+{
+	 // 1. Set synthdef name
+	var name = \biquad_ex;
+
+
+	// 2. Make your synthdef!
 (
 SynthDef.new(\biquad_ex, {
 	arg a0, a1, a2, b1, b2;
@@ -9,6 +21,7 @@ SynthDef.new(\biquad_ex, {
 	Out.ar([0, 1], sig);
 }).add;
 )
+//biquad Filter example
 
 Synth(\biquad_ex,
 	[\a0, 0.003493,
