@@ -2,7 +2,7 @@
 /*==========================================*/
 // license : MIT
 // description : Biquad Filter coefficient example
-// Creator :
+// Creator : Sangbin Rhie
 /*==========================================*/
 
 (
