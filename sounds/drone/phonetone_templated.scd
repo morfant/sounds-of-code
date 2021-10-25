@@ -7,15 +7,15 @@
 (
 {
 	// 1. Set synthdef name
-	var name = \phonesource
-(
-SynthDef.new(name, {
-	var sig;
-	sig=LFPulse.ar(1/5, width: 0.3);
-	sig=SinOsc.ar(480, 0, sig)+SinOsc.ar(440, 0, sig);
-	Out.ar([0, 1], sig);
-}).store;
-)
+	var name = \phonesource;
+
+	SynthDef.new(name, {
+		var sig;
+		sig=LFPulse.ar(1/5, width: 0.3);
+		sig=SinOsc.ar(480, 0, sig)+SinOsc.ar(440, 0, sig);
+		Out.ar([0, 1], sig);
+	}).store;
+
 	name;
 }.value();
 )

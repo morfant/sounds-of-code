@@ -20,6 +20,7 @@ kindPaths.do{|folder|
 	var splitPath = pathStr.split($/);
 	var name = splitPath[splitPath.size - 2];
 	var libName = baseName++"_"++name;
+	// folder.postln;
 	kindKeys = kindKeys.add(name); // Array
 	libNames.put(name, libName); // IdentityDictionary
 	pathNames.put(name, pathStr); // IdentityDictionary
@@ -34,7 +35,9 @@ kindKeys.do{|key|
 	(">> Reading"+folder+"...").postln;
 
 	folder.filesDo{|f|
+
 		var extType = f.extension;
+		// f.postln;
 		//extType.postln;
 		if (extType == "scd", {
 			var file = f.fileName;
@@ -56,7 +59,7 @@ kindKeys.do{|key|
 };
 
 // open browser
-// SynthDescLib.global.browse;
+SynthDescLib.global.browse;
 )
 
 

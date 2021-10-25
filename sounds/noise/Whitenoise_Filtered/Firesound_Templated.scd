@@ -8,10 +8,9 @@
 (
 {
 	// 1. Set synthdef name
-	var name = \firegen
+	var name = \firegen;
 
-	(
-		SynthDef.new(\firegen,
+		SynthDef.new(name,
 			{
 				var triggersig, durscale, resfreq, noise, hiss, crackles, lapping, sig;
 				noise = WhiteNoise.ar;
@@ -25,7 +24,7 @@
 				sig=([crackles, hiss, lapping] * [0.1, 0.3, 0.6]).sum * 3;
 				Out.ar([0, 1], sig);
 		}).store;
-	)
+
 	name;
 }.value();
 )
