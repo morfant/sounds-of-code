@@ -8,36 +8,6 @@
 (
 {
 	 // 1. Set synthdef name
-	var name = \lowdrone;
-
-
-	// 2. Make your synthdef!
-	SynthDef(name, {
-		arg freq1 = 1000, freq2 = 444;
-		var sig1, sig2, env, fil1, fil2, fil3, fil4;
-		sig1 = Saw.ar(freq1 * LFNoise1.ar(5, mul: 0.25));
-		sig2 = Saw.ar(freq2 * LFNoise2.ar(1.75, mul: 0.5));
-		env = LFTri.ar(30, mul: 0.3, add: 0.3);
-		sig1 = sig1 * env;
-		sig2 = sig2 * env;
-
-		fil1 = Ringz.ar(sig1, 20, mul: 0.005);
-		fil2 = RHPF.ar(sig1, 150);
-		fil3 = BPF.ar(sig2, 444, 0.2);
-		fil4 = Ringz.ar(fil3, 40, mul: 0.5);
-
-		Out.ar(0, [fil1 + fil2, fil4]);
-
-
-	// 3. leave below code, Please
-	}).store;
-	name;
-}.value();
-)
-
-(
-{
-	 // 1. Set synthdef name
 	var name = \coldwind;
 
 
@@ -80,15 +50,6 @@ Pdef(\coldpat1,
 		\att, Pwhite(0.5, 1.5, inf),
 		\rel, Pwhite(1.0, 3.0, inf),
 		\pan, Pwhite(-1.0, 1.0, inf),
-	);
-).play;
-
-Pdef(\coldpat2,
-	Pbind(
-		\instrument, \lowdrone,
-		\dur, Pseq([3, 5, 4], inf),
-		\freq1, Pseq([1000, 1100], inf),
-		\freq2, Pwhite(440, 444, inf)
 	);
 ).play;
 )
