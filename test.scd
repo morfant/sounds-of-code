@@ -1,1 +1,1 @@
-{SinOsc.ar()!2}.play;
+"MTK_Sounds_of_code_archive.scd".loadRelative;
